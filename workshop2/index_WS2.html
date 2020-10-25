@@ -14,18 +14,70 @@
   <h1>Using fetch to access MTR Next Train API</h1>
   <label for="line">Choose the MTR line:</label>
   <select name="line" id="line">
-
+    <option value="AEL" selected>Airport Express</option>
+    <option value="TCL">Tung Chung Line</option>
+    <option value="WRL">West Rail Line</option>
+    <option value="TKL">Tseung Kwan O Line</option>
   </select>
   <br><br>
   <label for="station">Choose the Station:</label>
   <select name="station" id="station">
-
+    <option class="AEL" value="HOK">Hong Kong</option>
+    <option class="AEL" value="KOW">Kowloon</option>
+    <option class="AEL" value="TSY">Tsing Yi</option>
+    <option class="AEL" value="AIR">Airport</option>
+    <option class="AEL" value="AWE">AsiaWorld Expo</option>
   </select>
   <br><br>
   <button id="bttn">Get Train Data</button>
   <div id="output" style="margin-top: 1rem"></div>
 
   <script>
+    const Stations = {
+      'AEL': '<option class="AEL" value="HOK">Hong Kong</option> \
+      <option class="AEL" value="KOW">Kowloon</option> \
+      <option class="AEL" value="TSY">Tsing Yi</option> \
+      <option class="AEL" value="AIR">Airport</option> \
+      <option class="AEL" value="AWE">AsiaWorld Expo</option>',
+      'TCL': '<option class="TCL" value="HOK">Hong Kong</option> \
+      <option class="TCL" value="KOW">Kowloon</option> \
+      <option class="TCL" value="OLY">Olympic</option> \
+      <option class="TCL" value="NAC">Nam Cheong</option> \
+      <option class="TCL" value="LAK">Lai King</option> \
+      <option class="TCL" value="TSY">Tsing Yi</option> \
+      <option class="TCL" value="SUN">Sunny Bay</option> \
+      <option class="TCL" value="TUC">Tung Chung</option>',
+      'WRL': '<option class="WRL" value="HUH">Hung Hom</option> \
+      <option class="WRL" value="ETS">East Tsim Sha Tsui</option> \
+      <option class="WRL" value="AUS">Austin</option> \
+      <option class="WRL" value="NAC">Nam Cheong</option> \
+      <option class="WRL" value="MEF">Mei Foo</option> \
+      <option class="WRL" value="TWW">Tsuen Wan West</option> \
+      <option class="WRL" value="KSR">Kam Sheung Road</option> \
+      <option class="WRL" value="YUL">Yuen Long</option> \
+      <option class="WRL" value="LOP">Long Ping</option> \
+      <option class="WRL" value="TIS">Tin Shui Wai</option> \
+      <option class="WRL" value="SIH">Siu Hong</option> \
+      <option class="WRL" value="TUM">Tuen Mun</option>',
+      'TKL': '<option class="TKL" value="NOP">North Point</option> \
+      <option class="TKL" value="QUB">Quarry Bay</option> \
+      <option class="TKL" value="YAT">Yau Tong</option> \
+      <option class="TKL" value="TIK">Tiu Keng Leng</option> \
+      <option class="TKL" value="TKO">Tseung Kwan O</option> \
+      <option class="TKL" value="LHP">LOHAS Park</option> \
+      <option class="TKL" value="HAH">Hang Hau</option> \
+      <option class="TKL" value="POA">Po Lam</option>' };
+
+    let currentLine="AEL"; //assume Airport Express line initially
+    let line = document.getElementById('line'); // declare variable line to store the line option
+    line.addEventListener('change', (e) => {
+      let selectedLine = line.value;
+      if (selectedLine != currentLine) { //there is a change
+        let station = document.getElementById('station'); // declare variable station to store the station option
+        station.innerHTML = Stations[selectedLine]; // choose the selected line and write the to station's content
+        currentLine = selectedLine; // update the currentLine to the selectedLine
+      }
+    });
 
   </script>
 </body>
