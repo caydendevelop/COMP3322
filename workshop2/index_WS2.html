@@ -22,8 +22,8 @@
 <br><br>
 <label for="station">Choose the Station:</label>
 <select name="station" id="station">
-  <option class="AEL" value="HOK">Hong Kong</option>
-  <option class="AEL" value="KOW">Kowloon</option>
+   <option class="AEL" value="HOK">Hong Kong</option> <!-- class seems only for CSS -->
+  <option class="AEL" value="KOW">Kowloon</option> 
   <option class="AEL" value="TSY">Tsing Yi</option>
   <option class="AEL" value="AIR">Airport</option>
   <option class="AEL" value="AWE">AsiaWorld Expo</option>
@@ -69,47 +69,47 @@
       <option class="TKL" value="POA">Po Lam</option>' };
 
   let currentLine="AEL"; //assume Airport Express line initially
-  let line = document.getElementById('line'); // declare variable line to store the line option
+  let line = document.getElementById('line'); // declare variable line to store the <select id='line'> tag 
   line.addEventListener('change', (e) => {
-    let selectedLine = line.value;
+    let selectedLine = line.value; // let selectLine = value of <select>
     if (selectedLine != currentLine) { //there is a change
       //let station = document.querySelector('#station'); // same as the follow document.getElementById('station') in this situation
-      let station = document.getElementById('station'); // declare variable station to store the station option.
-      station.innerHTML = Stations[selectedLine]; // choose the selected line and write the to station's content
+      let station = document.getElementById('station'); // declare variable station to store the <select id='station'> tag 
+      station.innerHTML = Stations[selectedLine]; // choose the selected line and write the to <select value=${station}> innerHTML is here </select> 
       currentLine = selectedLine; // update the currentLine to the selectedLine
     }
   });
 
 
+// the following is for fetching the API
+
   const stnList= { "HOK": "Hong Kong", "KOW": "Kowloon", "TSY": "Tsing Yi", "AIR": "Airport", "AWE": "AsiaWorld Expo", "HOK": "Hong Kong", "KOW": "Kowloon", "OLY": "Olympic", "NAC": "Nam Cheong", "LAK": "Lai King", "TSY": "Tsing Yi", "SUN": "Sunny Bay", "TUC": "Tung Chung", "HUH": "Hung Hom", "ETS": "East Tsim Sha Tsui", "AUS": "Austin", "NAC": "Nam Cheong", "MEF": "Mei Foo", "TWW": "Tsuen Wan West", "KSR": "Kam Sheung Road", "YUL": "Yuen Long", "LOP": "Long Ping", "TIS": "Tin Shui Wai", "SIH": "Siu Hong", "TUM": "Tuen Mun", "NOP": "North Point", "QUB": "Quarry Bay", "YAT": "Yau Tong", "TIK": "Tiu Keng Leng", "TKO": "Tseung Kwan O", "LHP": "LOHAS Park", "HAH": "Hang Hau", "POA": "Po Lam" }
 
-  let bttn = document.getElementById('bttn');
-  bttn.addEventListener("click", fRequest);
+  let bttn = document.getElementById('bttn'); // declare variable bttn to store the <button id='bttn'> tag
+  bttn.addEventListener("click", fRequest); 
 
   function fRequest() {
 
-    let line = document.getElementById('line').value;
-    let station = document.getElementById('station').value; //get the station
+    let line = document.getElementById('line').value;  // declare variable line to store the <select id='line'> tag 
+    let station = document.getElementById('station').value; // declare variable station to store the <select id='station'> tag 
 
   fetch(`https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=${line}&sta=${station}`)
     .then( response => {
-      if ( response.status == 200) {
+      if ( response.status == 200) { // HTTP Response
         response.json().then( schedule => { // convert response to JSON format as variable schedule
           let output = "";
 
-          if (schedule.status == 0) {
-            //will handle this later
-            output += schedule.message;
-            if (schedule.url)
-              output += `<br><a href='${schedule.url}'>${schedule.url}</a>`;
+          if (schedule.status == 0) { // JSON Response
+            output += schedule.message; // JSON.message = Alert message 
+          if (schedule.url) // URL for Special Train Services Arrangement case.
+            output += `<br><a href='${schedule.url}'>${schedule.url}</a>`;
 
           } else {
             if (schedule.isdelay == 'Y') {
-              // will handle this later
               output = "No data is available";
 
             } else { // normal response
-              let dataUP = schedule.data[line+'-'+station].UP;
+              let dataUP = schedule.data[line+'-'+station].UP; // data is array. UP都係array(array in data array). API document 無講清楚，要用firefox睇番JSON先知!
               let dataDN = schedule.data[line+'-'+station].DOWN;
 
               if (dataUP) { // has the UP data

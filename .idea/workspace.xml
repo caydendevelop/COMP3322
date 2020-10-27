@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f62040c-05e5-4749-bad7-b67d9f0ea494" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assignment2/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assignment2/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/workshop2/index_WS2.html" beforeDir="false" afterPath="$PROJECT_DIR$/workshop2/index_WS2.html" afterDir="false" />
     </list>
@@ -9,6 +11,14 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,13 +32,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.updates" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -41,11 +52,37 @@
       <updated>1603601556505</updated>
       <workItem from="1603601557581" duration="1004000" />
       <workItem from="1603619061108" duration="266000" />
-      <workItem from="1603620062069" duration="4062000" />
+      <workItem from="1603620062069" duration="4911000" />
+      <workItem from="1603683025716" duration="1207000" />
+      <workItem from="1603685072871" duration="4433000" />
+      <workItem from="1603713429769" duration="1811000" />
+      <workItem from="1603720603605" duration="724000" />
+      <workItem from="1603772207922" duration="453000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="304" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603720192389">
+      <screen x="0" y="23" width="1680" height="873" />
+    </state>
+    <state x="304" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1280.23.1280.697/0.23.1680.873/1680.23.945.1657@0.23.1680.873" timestamp="1603720192389" />
+    <state x="341" y="98" key="SettingsEditor" timestamp="1603721301904">
+      <screen x="0" y="23" width="1680" height="873" />
+    </state>
+    <state x="341" y="98" key="SettingsEditor/-1280.23.1280.697/0.23.1680.873/1680.23.945.1657@0.23.1680.873" timestamp="1603721301904" />
   </component>
 </project>
