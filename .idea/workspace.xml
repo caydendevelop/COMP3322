@@ -20,10 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f62040c-05e5-4749-bad7-b67d9f0ea494" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assignment2/HKO_Open_Data_API_Documentation.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assignment2/index_asm2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assignment2/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assignment2/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/assignment2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment2/index.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +79,8 @@
       <workItem from="1603685072871" duration="4433000" />
       <workItem from="1603713429769" duration="1811000" />
       <workItem from="1603720603605" duration="724000" />
-      <workItem from="1603772207922" duration="2618000" />
+      <workItem from="1603772207922" duration="4029000" />
+      <workItem from="1603781030770" duration="335000" />
     </task>
     <servers />
   </component>
@@ -96,6 +97,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
