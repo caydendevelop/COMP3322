@@ -1,3 +1,16 @@
 .headerBlockCSS{
     background-color: #9EC7D9;
+    border-radius: 1em;
 }
+
+.header_button{
+    float:right;
+    margin:1em;
+    border: none;
+    background: none;
+}
+
+.header_h1{
+    padding:1em;
+}
+
