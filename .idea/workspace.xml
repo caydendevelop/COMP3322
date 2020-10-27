@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6f62040c-05e5-4749-bad7-b67d9f0ea494" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assignment2/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assignment2/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assignment2/HKO_Open_Data_API_Documentation.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workshop2/index_WS2.html" beforeDir="false" afterPath="$PROJECT_DIR$/workshop2/index_WS2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment2/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assignment2/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/assignment2/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,11 +42,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jM6LLvL2CwyRTg7LpoipsEiNl9" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -57,7 +79,7 @@
       <workItem from="1603685072871" duration="4433000" />
       <workItem from="1603713429769" duration="1811000" />
       <workItem from="1603720603605" duration="724000" />
-      <workItem from="1603772207922" duration="453000" />
+      <workItem from="1603772207922" duration="2618000" />
     </task>
     <servers />
   </component>
@@ -74,6 +96,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="304" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603720192389">
