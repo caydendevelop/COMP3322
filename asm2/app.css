@@ -14,3 +14,39 @@
     padding:1em;
 }
 
+.weather_icon{
+    margin:2em;
+}
+
+.png_margin{
+    margin-left:2em;
+}
+
+.accordion{
+    margin:2em;
+    padding-bottom: 1em;
+}
+
+.ah{
+    
+    background-color: #EF7D7C;
+    padding:5px 15px 5px 15px;
+    border-radius: 10px 10px 10px 10px;
+    
+}
+
+
+.accordion-body{
+    font-size: small;
+    display:none;
+    background-color: #EF7D7C;
+    padding:5px 5px 5px 15px;
+    border-radius: 0px 10px 10px 10px;
+
+}
+
+.accordion:hover div{
+    display:block;
+    
+}
+
