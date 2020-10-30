@@ -56,3 +56,26 @@
     text-align: end; 
     padding: 1em 1em 0em 1em;
 }
+
+.temperatureTab{
+    width:100%
+}
+
+.tempCard{
+    background-color: #9EC7D9;
+    display: inline-block;
+    text-align: center;
+    margin: 2em;
+    padding: 1em;
+    width: 10em;
+    height: 10em;
+    border-radius: 1em;
+}
+
+.text_center{
+    position: relative;
+    top: 25%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
