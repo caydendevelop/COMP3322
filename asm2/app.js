@@ -8,10 +8,17 @@ headerBlock.id = 'headerBlockID';
 let content = "";
 // let buttonImg = document.createElement("img");
 // buttonImg.src = "./images/reload.png";
-content += '<button class="header_button"><img src="./images/reload.png"></button>';
+content += '<button class="header_button" id="reloadBttn"><img src="./images/reload.png"></button>';
 content += '<br/><h1 class="header_h1">Weather in Hong Kong</h1>';
 headerBlock.innerHTML = content;
+body.appendChild(headerBlock);
 
+let bttn = document.getElementById('reloadBttn'); // declare variable bttn to store the <button id='bttn'> tag
+bttn.addEventListener("click", fRequest); 
+
+fRequest();
+
+function fRequest(){
 fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread`)
     .then( response => {
         response.json().then( WR => {
@@ -122,11 +129,11 @@ fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrr
                 output += '<span> '+WR.uvindex.data[0].value+' </span>';
             }
             
-            let warningMessage = `For showing the 9-day forecast, the app should show the predicted data: weather icon, date and day, temperature range, and humidity
-            range for each forecast date. The data is arranged in
-            chronological order.`;
+            // let warningMessage = `For showing the 9-day forecast, the app should show the predicted data: weather icon, date and day, temperature range, and humidity
+            // range for each forecast date. The data is arranged in
+            // chronological order.`;
 
-            if(warningMessage != ""){
+            if(WR.warningMessage != ""){
                 output += `<div class="accordion"> 
                               
                                 <span class="ah">
@@ -134,20 +141,35 @@ fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrr
                                     <img src="./images/arrow.png">
                                 </span>
                                 <div class="accordion-body">
-                                    ` + warningMessage +`
+                                    ` + WR.warningMessage +`
                                 </div>
                               
                            </div>`;
             }
 
+            
+            // var dateReviver = function (key, value) {
+            //     var a;
+            //     if (typeof value === 'string') {
+            //         a = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/.exec(value);
+            //         if (a) {
+            //             return new Date(Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4], +a[5], +a[6]));
+            //         }
+            //     }
+            //     return value;
+            // };
+            // var result = JSON.parse(time, dateReviver);
 
+
+            let time = WR.updateTime;
+            output += '<h6 class="updateTime"> Last Update: '+time.substr(11,5)+'</h6>';
 
             document.getElementById("headerBlockID").innerHTML += output;
         })
     })
+    body.appendChild(headerBlock);
+}
 
-
-body.appendChild(headerBlock);
 
 
 

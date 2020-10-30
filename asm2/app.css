@@ -50,3 +50,9 @@
     
 }
 
+.updateTime{
+    
+    display:block;
+    text-align: end; 
+    padding: 1em 1em 0em 1em;
+}
