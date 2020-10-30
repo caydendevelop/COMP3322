@@ -31,7 +31,6 @@ bodyContent += `<div class="tab-head">
 
                     <div id="forecastTab">
                         <h3>Forecast</h3>
-                        <p>Paris is the capital of France.</p> 
                     </div>
                 </div>`;
 
@@ -68,11 +67,11 @@ body.appendChild(bodyBlock);
 
 
 let bttn = document.getElementById('reloadBttn'); // declare variable bttn to store the <button id='bttn'> tag
-bttn.addEventListener("click", fRequest); 
+bttn.addEventListener("click", f1Request, f2Request); 
 
-fRequest();
+f1Request();
 
-function fRequest(){
+function f1Request(){
 fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread`)
     .then( response => {
         response.json().then( WR => {
@@ -211,31 +210,146 @@ fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrr
             // Last update time
             let time = WR.updateTime;
             headerOutput += '<h6 class="updateTime"> Last Update: '+time.substring(11,16)+'</h6>'; // .substr(startIndex, length) vs .substring(startIndex, endIndex)
-
             document.getElementById("headerBlockID").innerHTML += headerOutput;
-            // body.appendChild(headerBlock);
 
-            
-
+            // Temperature Part
             let bodyOutput = "";
-
-            for(let i = 0; i<27; i++){
-
-            bodyOutput +=  `<span class="tempCard">
-                                <h5 class="text_center">` + WR.temperature.data[i].place + `</h5>
-                                <h6 class="text_center">` + WR.temperature.data[i].value + `°C</h6>
-                            </span>`;
-            
+            for(let i = 0; i<WR.temperature.data.length; i++){
+                bodyOutput +=  `<span class="tempCard">
+                                    <h5 class="text_center">` + WR.temperature.data[i].place + `</h5>
+                                    <h6 class="text_center">` + WR.temperature.data[i].value + `°C</h6>
+                                </span>`;
             }
-
             document.getElementById("temperatureTab").innerHTML += bodyOutput;
-            // body.appendChild(bodyBlock);
+            
+            
+
 
         })
     })
     
 
 
+}
+
+// const dateList={ }
+
+f2Request();
+
+function f2Request(){
+fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd`)
+    .then( response => {
+        response.json().then( WF => {
+            // Forecast Part
+            let bodyOutput = "";
+
+            for(let i=0; i<WF.weatherForecast.length;i++){
+                bodyOutput += '<span class="fcCard">'
+                switch(WF.weatherForecast[i].ForecastIcon) {
+                    case 50:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic50.png"></span>';
+                        break;               
+                    case 51:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic51.png"></span>';
+                        break;
+                    case 52:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic52.png"></span>';
+                        break;
+                    case 53:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic53.png"></span>';
+                        break;
+                    case 54:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic54.png"></span>';
+                        break;
+                    case 60:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic60.png"></span>';
+                        break;
+                    case 61:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic61.png"></span>';
+                        break;
+                    case 62:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic62.png"></span>';
+                        break;
+                    case 63:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic63.png"></span>';
+                        break;
+                    case 64:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic64.png"></span>';
+                        break;
+                    case 65:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic65.png"></span>';
+                        break;
+                    case 70:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic70.png"></span>';
+                        break;
+                    case 71:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic71.png"></span>';
+                        break;
+                    case 72:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic72.png"></span>';
+                        break;
+                    case 73:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic73.png"></span>';
+                        break;
+                    case 74:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic74.png"></span>';
+                        break;
+                    case 75:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic75.png"></span>';
+                        break;
+                    case 76:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic76.png"></span>';
+                        break;
+                    case 77:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic77.png"></span>';
+                        break;
+                    case 80:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic80.png"></span>';
+                        break;
+                    case 81:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic81.png"></span>';
+                        break;
+                    case 82:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic82.png"></span>';
+                        break;
+                    case 83:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic83.png"></span>';
+                        break;
+                    case 84:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic84.png"></span>';
+                        break;
+                    case 85:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic85.png"></span>';
+                        break;
+                    case 90:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic90.png"></span>';
+                        break;
+                    case 91:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic91.png"></span>';
+                        break;
+                    case 92:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic92.png"></span>';
+                        break;
+                    case 93:
+                        bodyOutput += '<span class="weather_icon"><img src="./images/pic93.png"></span>';
+                        break;
+                }
+                date = WF.weatherForecast[i].forecastDate.substr(6,2) + ' / ' + WF.weatherForecast[i].forecastDate.substr(4,2);
+
+                bodyOutput +=  `
+
+                                    <h5 >` + date + `</h5>
+                                    <h6 >` + WF.weatherForecast[i].week + `</h6>
+                                    <h6 >` + WF.weatherForecast[i].forecastMintemp.value+`°C  |  `+WF.weatherForecast[i].forecastMaxtemp.value+`°C</h6>
+                                    <h6 >` + WF.weatherForecast[i].forecastMinrh.value+`%  -  `+WF.weatherForecast[i].forecastMaxrh.value+`%</h6>
+                                    
+                                </span >`;
+            
+        }
+            document.getElementById("forecastTab").innerHTML += bodyOutput;
+
+        })
+    })
 }
 
 

@@ -79,3 +79,19 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
+.fcCard{
+    background-color: #9EC7D9;
+    display: inline-block;
+    text-align: center;
+    margin: 2em;
+    padding: 1em;
+    width: 10em;
+    height: 13em;
+    border-radius: 1em;
+}
+
+.fcCard h6{
+    padding: 1em;
+    margin: 0;
+}
