@@ -19,55 +19,28 @@ bodyBlock.id = 'bodyBlockID';
 
 let bodyContent = "";
 bodyContent += `<div class="tab-head">
-                    <button id="tab1" style="display:inline"> Temperature </button>
-                    <button id="tab2" style="display:inline"> Forecast </button>
+                    <button id="tab1" onclick="changeTab1()" style="display:inline"> Temperature </button>
+                    <button id="tab2" onclick="changeTab2()" style="display:inline"> Forecast </button>
                 </div>
                 
-                <div class="tab-content">
-                    <div class="temperatureTab" id="temperatureTab">
-                        <h3>Temperature</h3>
+                <div class="tab-content ">
+                    <div class="show" id="temperatureTab">
                         
                     </div>
 
-                    <div id="forecastTab">
-                        <h3>Forecast</h3>
+                    <div class="noShow" id="forecastTab">
+                        
                     </div>
                 </div>`;
 
 bodyBlock.innerHTML += bodyContent;
 body.appendChild(bodyBlock);
 
-// let tab1 = document.getElementById('tab1'),
-// tab2 = document.getElementById('tab2'),
-
-// c1 = document.getElementById('temperatureTab'),
-// c2 = document.getElementById('forecastTab');
-
-
-// function changeTab1() {
-//     tab1.className = 'selected';
-//     tab2.className = '';
-    
-//     c1.className = 'show'
-//     c2.className = '';
-    
-// }
-
-// function changeTab2() {
-//     // tab1.className = '';
-//     // tab2.className = 'selected';
-    
-//     // c1.className = '';
-//     // c2.className = 'show';
-//     console.log("clicked");
-// }
-
-
-
 
 
 let bttn = document.getElementById('reloadBttn'); // declare variable bttn to store the <button id='bttn'> tag
-bttn.addEventListener("click", f1Request, f2Request); 
+bttn.addEventListener("click", f1Request); 
+bttn.addEventListener("click", f2Request); 
 
 f1Request();
 
@@ -201,7 +174,7 @@ fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrr
                                     <img src="./images/arrow.png">
                                 </span>
                                 <div class="accordion-body">
-                                    ` + WR.warningMessage +`
+                                    ` + WR.warningMessage[0] +`
                                 </div>
                               
                            </div>`;
@@ -221,18 +194,9 @@ fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrr
                                 </span>`;
             }
             document.getElementById("temperatureTab").innerHTML += bodyOutput;
-            
-            
-
-
         })
     })
-    
-
-
 }
-
-// const dateList={ }
 
 f2Request();
 
@@ -337,7 +301,6 @@ fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd`
                 date = WF.weatherForecast[i].forecastDate.substr(6,2) + ' / ' + WF.weatherForecast[i].forecastDate.substr(4,2);
 
                 bodyOutput +=  `
-
                                     <h5 >` + date + `</h5>
                                     <h6 >` + WF.weatherForecast[i].week + `</h6>
                                     <h6 >` + WF.weatherForecast[i].forecastMintemp.value+`°C  |  `+WF.weatherForecast[i].forecastMaxtemp.value+`°C</h6>
@@ -356,6 +319,31 @@ fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd`
 
 
 
+let tab1 = document.getElementById('tab1'),
+tab2 = document.getElementById('tab2'),
 
+c1 = document.getElementById('temperatureTab'),
+c2 = document.getElementById('forecastTab');
+
+
+function changeTab1() {
+    tab1.className = 'selected';
+    tab2.className = '';
+    
+    c1.className = 'show'
+    c2.className = 'noShow';
+
+    console.log("clicked 1");
+}
+
+function changeTab2() {
+    tab1.className = '';
+    tab2.className = 'selected';
+    
+    c1.className = 'noShow';
+    c2.className = 'show';
+
+    console.log("clicked 2");
+}
 
 

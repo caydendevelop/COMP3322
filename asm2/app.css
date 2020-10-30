@@ -95,3 +95,17 @@
     padding: 1em;
     margin: 0;
 }
+
+.selected{
+    border: 1px solid;
+    border-color: #ff9800;
+    border-radius: 2em;
+}
+
+.noShow{
+    display:none;
+}
+
+.show{
+    display:block;
+}
