@@ -38,9 +38,15 @@ body.appendChild(bodyBlock);
 
 
 
+
+
+
 let bttn = document.getElementById('reloadBttn'); // declare variable bttn to store the <button id='bttn'> tag
 bttn.addEventListener("click", f1Request); 
 bttn.addEventListener("click", f2Request); 
+
+
+
 
 f1Request();
 
@@ -51,6 +57,7 @@ fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrr
 
             let headerOutput = "";
             
+
             // Weather icon
             switch(WR.icon[0]) {
                 case 50:
@@ -189,13 +196,23 @@ fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrr
             let bodyOutput = "";
             for(let i = 0; i<WR.temperature.data.length; i++){
                 bodyOutput +=  `<span class="tempCard">
+                                    <button class="remove_button"><img src="./images/cancel.ico"></button>
                                     <h5 class="text_center">` + WR.temperature.data[i].place + `</h5>
                                     <h6 class="text_center">` + WR.temperature.data[i].value + `°C</h6>
                                 </span>`;
+                
             }
             document.getElementById("temperatureTab").innerHTML += bodyOutput;
+            
         })
     })
+}
+
+let removebttn = document.getElementById('removeBttn'); // declare variable bttn to store the <button id='bttn'> tag
+bttn.addEventListener("click", removeCard);
+
+function removeCard(){
+    
 }
 
 f2Request();
@@ -206,9 +223,12 @@ fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd`
         response.json().then( WF => {
             // Forecast Part
             let bodyOutput = "";
+            
+            
 
             for(let i=0; i<WF.weatherForecast.length;i++){
-                bodyOutput += '<span class="fcCard">'
+                bodyOutput += '<span class="fcCard">';
+                
                 switch(WF.weatherForecast[i].ForecastIcon) {
                     case 50:
                         bodyOutput += '<span class="fcweather_icon"><img src="./images/pic50.png"></span>';
@@ -333,7 +353,7 @@ function changeTab1() {
     c1.className = 'show'
     c2.className = 'noShow';
 
-    console.log("clicked 1");
+    //console.log("clicked 1");
 }
 
 function changeTab2() {
@@ -343,7 +363,7 @@ function changeTab2() {
     c1.className = 'noShow';
     c2.className = 'show';
 
-    console.log("clicked 2");
+    //console.log("clicked 2");
 }
 
 

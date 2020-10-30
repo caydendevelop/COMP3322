@@ -71,6 +71,14 @@ body{
     width:100%
 }
 
+.remove_button{
+    /* position: relative; */
+    margin-left: 80%;
+    display: block;
+    border: none;
+    background: none;
+}
+
 .tempCard{
     background-color: #9EC7D9;
     display: inline-block;
@@ -85,11 +93,13 @@ body{
 
 .text_center{
     position: relative;
-    top: 25%;
+    
+    top: 10%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
 
 .fcCard{
     background-color: #9EC7D9;
@@ -164,7 +174,7 @@ body{
 
     .text_center{
         position: relative;
-        top: 40%;
+        top: 20%;
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
