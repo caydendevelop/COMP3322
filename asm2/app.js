@@ -8,7 +8,7 @@ headerBlock.id = 'headerBlockID';
 let headerContent = "";
 // let buttonImg = document.createElement("img");
 // buttonImg.src = "./images/reload.png";
-headerContent += '<button class="header_button" id="reloadBttn"><img src="./images/reload.png"></button>';
+headerContent += '<button class="header_button" id="reloadBttn" onclick="location.reload()" ><img src="./images/reload.png"></button>';
 headerContent += '<br/><h1 class="header_h1">Weather in Hong Kong</h1>';
 headerBlock.innerHTML = headerContent;
 body.appendChild(headerBlock);
@@ -36,17 +36,9 @@ bodyContent += `<div class="tab-head">
 bodyBlock.innerHTML += bodyContent;
 body.appendChild(bodyBlock);
 
-
-
-
-
-
-let bttn = document.getElementById('reloadBttn'); // declare variable bttn to store the <button id='bttn'> tag
-bttn.addEventListener("click", f1Request); 
-bttn.addEventListener("click", f2Request); 
-
-
-
+// let bttn = document.getElementById('reloadBttn'); // declare variable bttn to store the <button id='bttn'> tag
+// bttn.addEventListener("click", f1Request); 
+// bttn.addEventListener("click", f2Request); 
 
 f1Request();
 
@@ -202,17 +194,21 @@ fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrr
                                 </span>`;
                 
             }
-            document.getElementById("temperatureTab").innerHTML += bodyOutput;
+
             
+            document.getElementById("temperatureTab").innerHTML += bodyOutput;
+            let removeBttn = document.getElementsByClassName('remove_button'); // declare variable bttn to store the <button id='bttn'> tag
+            let j;
+
+            for(j=0; j<removeBttn.length; j++){
+                removeBttn[j].addEventListener("click", function(){
+                    this.parentElement.remove();
+                    //this.parentElement.style.display = 'none';
+
+                })
+            }
         })
     })
-}
-
-let removebttn = document.getElementById('removeBttn'); // declare variable bttn to store the <button id='bttn'> tag
-bttn.addEventListener("click", removeCard);
-
-function removeCard(){
-    
 }
 
 f2Request();
@@ -224,8 +220,6 @@ fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd`
             // Forecast Part
             let bodyOutput = "";
             
-            
-
             for(let i=0; i<WF.weatherForecast.length;i++){
                 bodyOutput += '<span class="fcCard">';
                 
@@ -334,10 +328,6 @@ fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd`
         })
     })
 }
-
-
-
-
 
 let tab1 = document.getElementById('tab1'),
 tab2 = document.getElementById('tab2'),

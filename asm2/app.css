@@ -19,7 +19,8 @@ body{
 }
 
 .header_h1{
-    padding:1em;
+    padding-left:1em;
+    margin-bottom: 5px;
 }
 
 .weather_icon{
