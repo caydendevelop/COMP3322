@@ -1,3 +1,7 @@
+body{
+    background-color: #F5F6F7;
+}
+
 .headerBlockCSS{
     background-color: #9EC7D9;
     border-radius: 1em;
@@ -96,10 +100,22 @@
     margin: 0;
 }
 
+.tab-head{
+    margin-bottom: 1em;
+}
+
+.tab-head a{
+    
+    border-radius: 5px;
+    padding:1em;
+}
+
+.tab-content{
+    background-color: #ffffff;
+}
+
 .selected{
-    border: 1px solid;
-    border-color: #ff9800;
-    border-radius: 2em;
+    background-color: #ffffff;
 }
 
 .noShow{

@@ -19,8 +19,8 @@ bodyBlock.id = 'bodyBlockID';
 
 let bodyContent = "";
 bodyContent += `<div class="tab-head">
-                    <button id="tab1" onclick="changeTab1()" style="display:inline"> Temperature </button>
-                    <button id="tab2" onclick="changeTab2()" style="display:inline"> Forecast </button>
+                    <a class="selected" id="tab1" onclick="changeTab1()" style="display:inline"> Temperature </button>
+                    <a id="tab2" onclick="changeTab2()" style="display:inline"> Forecast </button>
                 </div>
                 
                 <div class="tab-content ">
