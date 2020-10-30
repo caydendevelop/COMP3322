@@ -19,8 +19,8 @@ bodyBlock.id = 'bodyBlockID';
 
 let bodyContent = "";
 bodyContent += `<div class="tab-head">
-                    <a class="selected" id="tab1" onclick="changeTab1()" style="display:inline"> Temperature </button>
-                    <a id="tab2" onclick="changeTab2()" style="display:inline"> Forecast </button>
+                    <button class="selected" id="tab1" onclick="changeTab1()" style="display:inline"> Temperature </button>
+                    <button id="tab2" onclick="changeTab2()" style="display:inline"> Forecast </button>
                 </div>
                 
                 <div class="tab-content ">
@@ -211,91 +211,91 @@ fetch(`https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd`
                 bodyOutput += '<span class="fcCard">'
                 switch(WF.weatherForecast[i].ForecastIcon) {
                     case 50:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic50.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic50.png"></span>';
                         break;               
                     case 51:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic51.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic51.png"></span>';
                         break;
                     case 52:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic52.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic52.png"></span>';
                         break;
                     case 53:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic53.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic53.png"></span>';
                         break;
                     case 54:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic54.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic54.png"></span>';
                         break;
                     case 60:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic60.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic60.png"></span>';
                         break;
                     case 61:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic61.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic61.png"></span>';
                         break;
                     case 62:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic62.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic62.png"></span>';
                         break;
                     case 63:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic63.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic63.png"></span>';
                         break;
                     case 64:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic64.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic64.png"></span>';
                         break;
                     case 65:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic65.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic65.png"></span>';
                         break;
                     case 70:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic70.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic70.png"></span>';
                         break;
                     case 71:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic71.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic71.png"></span>';
                         break;
                     case 72:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic72.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic72.png"></span>';
                         break;
                     case 73:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic73.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic73.png"></span>';
                         break;
                     case 74:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic74.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic74.png"></span>';
                         break;
                     case 75:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic75.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic75.png"></span>';
                         break;
                     case 76:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic76.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic76.png"></span>';
                         break;
                     case 77:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic77.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic77.png"></span>';
                         break;
                     case 80:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic80.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic80.png"></span>';
                         break;
                     case 81:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic81.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic81.png"></span>';
                         break;
                     case 82:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic82.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic82.png"></span>';
                         break;
                     case 83:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic83.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic83.png"></span>';
                         break;
                     case 84:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic84.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic84.png"></span>';
                         break;
                     case 85:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic85.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic85.png"></span>';
                         break;
                     case 90:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic90.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic90.png"></span>';
                         break;
                     case 91:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic91.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic91.png"></span>';
                         break;
                     case 92:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic92.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic92.png"></span>';
                         break;
                     case 93:
-                        bodyOutput += '<span class="weather_icon"><img src="./images/pic93.png"></span>';
+                        bodyOutput += '<span class="fcweather_icon"><img src="./images/pic93.png"></span>';
                         break;
                 }
                 date = WF.weatherForecast[i].forecastDate.substr(6,2) + ' / ' + WF.weatherForecast[i].forecastDate.substr(4,2);

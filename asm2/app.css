@@ -1,6 +1,10 @@
+
+
 body{
     background-color: #F5F6F7;
 }
+
+
 
 .headerBlockCSS{
     background-color: #9EC7D9;
@@ -20,10 +24,12 @@ body{
 
 .weather_icon{
     margin:2em;
+    display:inline-block;
 }
 
 .png_margin{
     margin-left:2em;
+    display:inline-block;
 }
 
 .accordion{
@@ -58,7 +64,7 @@ body{
     
     display:block;
     text-align: end; 
-    padding: 1em 1em 0em 1em;
+    padding: 1em 1em 5px 1em;
 }
 
 .temperatureTab{
@@ -69,11 +75,12 @@ body{
     background-color: #9EC7D9;
     display: inline-block;
     text-align: center;
-    margin: 2em;
+    margin: 1em;
     padding: 1em;
     width: 10em;
     height: 10em;
     border-radius: 1em;
+    vertical-align : top;
 }
 
 .text_center{
@@ -88,30 +95,40 @@ body{
     background-color: #9EC7D9;
     display: inline-block;
     text-align: center;
-    margin: 2em;
+    margin: 1em;
     padding: 1em;
-    width: 10em;
-    height: 13em;
+    width: 7em;
+    height: 10em;
     border-radius: 1em;
 }
 
-.fcCard h6{
+.fcCard h5{
     padding: 1em;
     margin: 0;
+}
+.fcCard h6{
+    padding: 2px;
+    margin: 0;
+}
+
+.fcweather_icon{
+    
+    text-align: center;
 }
 
 .tab-head{
     margin-bottom: 1em;
 }
 
-.tab-head a{
-    
+.tab-head button{
+    border: none;
     border-radius: 5px;
     padding:1em;
 }
 
 .tab-content{
     background-color: #ffffff;
+    text-align: center;
 }
 
 .selected{
@@ -124,4 +141,66 @@ body{
 
 .show{
     display:block;
+}
+
+@media only screen and (max-width: 400px) {
+    /* For mobile: */
+    .header_h1{
+        font-size: x-large;
+    }
+
+    .tempCard{
+        background-color: #ff9800;
+        color: #f5f6f7;
+        display: inline-block;
+        text-align: center;
+        margin: 1em;
+        padding: 1em;
+        width: 7em;
+        height: 7em;
+        border-radius: 1em;
+        vertical-align : top;
+    }
+
+    .text_center{
+        position: relative;
+        top: 40%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .tempCard h5{
+        font-size: x-small;
+        padding: 2px;
+        margin: 0;
+    }
+
+    .tempCard h6{
+        font-size: x-small;
+        padding: 2px;
+        margin: 0;
+    }
+
+    .fcCard{
+        background-color: #ff9800;
+        color:white;
+        display: inline-block;
+        text-align: center;
+        margin: 1em;
+        padding: 1em;
+        width: 6em;
+        height: 10em;
+        border-radius: 1em;
+        
+    }
+
+    .fcCard h5{
+        padding: 5px;
+        margin: 0;
+    }
+    .fcCard h6{
+        padding: 2px;
+        margin: 0;
+    }
 }
