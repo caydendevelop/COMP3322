@@ -31,7 +31,7 @@
   	<div id='container'>
   	  <h2>Drag & Drop Demo</h2>
       <div id='dest' ondrop='drop(event)' ondragover='allow(event)'>
-        <img id='trash' src='trashlit.png' >
+        <img id='trash' src='trashlit.png' ondrop='dropTrash(event)' ondragover='allow(event)'>
       </div>
       <p>
         <img id='source1' src='cube.png' draggable='true' ondragstart='drag(event)'>
@@ -44,10 +44,10 @@
 
     <script>
 
-      let x = document.getElementsByTagName("img");
+      // let x = document.getElementsByTagName("img");
       let i=1, j=1, k=1;
 
-      function allow(event) {
+      function allow(event){
         event.preventDefault();
       }
 
@@ -55,28 +55,53 @@
         event.dataTransfer.setData('image/png', event.target.id);
       }
 
-      function drop(event) {
-        event.preventDefault();
-        let data=event.dataTransfer.getData('image/png')
-        console.log("drop!");
+      function drop(event){
+        // 每個element獨立有一個id 先符合HTML標準 亦係delete得順利既最主要因素
+        // 唔知點解入左DestDiv既img改左id之後就會無辦法再自己Duplicate, 所以用shift移入去都要改id, 唔可以直接appendChild  
 
+        event.preventDefault();
+        let ID_Data=event.dataTransfer.getData('image/png')
+        
         if(event.shiftKey){
-          event.target.appendChild(document.getElementById(data));
-        }
-        else {
-          if (data=='source1'){
-            event.target.innerHTML += ('<img id = "source1_'+i+' " src = cube.png draggable = true ondragstart = drag(event)>');
+          if (ID_Data=='source1'){
+            event.target.innerHTML += ('<img id = "source1_'+i+'" src = cube.png draggable = true ondragstart = drag(event)>');
             i++;
           } 
-          else if (data=='source2'){
-            event.target.innerHTML += ('<img id = "source2_'+j+' " src = Dice.png draggable = true ondragstart = drag(event)>');
+          else if (ID_Data=='source2'){
+            event.target.innerHTML += ('<img id = "source2_'+j+'" src = Dice.png draggable = true ondragstart = drag(event)>');
             j++;
           } 
-          else if (data=='source3'){
-            event.target.innerHTML += ('<img id = "source3_'+k+' " src = ball.png draggable = true ondragstart = drag(event)>');
+          else if (ID_Data=='source3'){
+            event.target.innerHTML += ('<img id = "source3_'+k+'" src = ball.png draggable = true ondragstart = drag(event)>');
+            k++;
+          } 
+          var fileToBeDeleted=document.getElementById(ID_Data);
+          fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
+        }
+        else {
+          if (ID_Data=='source1'){
+            event.target.innerHTML += ('<img id = "source1_'+i+'" src = cube.png draggable = true ondragstart = drag(event)>');
+            i++;
+          } 
+          else if (ID_Data=='source2'){
+            event.target.innerHTML += ('<img id = "source2_'+j+'" src = Dice.png draggable = true ondragstart = drag(event)>');
+            j++;
+          } 
+          else if (ID_Data=='source3'){
+            event.target.innerHTML += ('<img id = "source3_'+k+'" src = ball.png draggable = true ondragstart = drag(event)>');
             k++;
           } 
         }
+      }
+
+
+      function dropTrash(event){
+
+        event.preventDefault();
+        let ID_Data=event.dataTransfer.getData('image/png');
+        var fileToBeDeleted=document.getElementById(ID_Data);
+        fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
+
       }
     </script>
   </body>
