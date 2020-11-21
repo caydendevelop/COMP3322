@@ -18,19 +18,25 @@
         width: 640px;
         height: 480px;
         padding: 1rem;
+        position: relative; /* 所以呢度要set做 default(static)以外的 */
+      }
+      #trash{
+        position: absolute; /* 通過指定元素相對於最近的非static定位祖先元素的偏移，來確定元素位置。 */
+        right: 0; 
+        bottom: 0;
       }
     </style>
   </head>
   <body>
   	<div id='container'>
   	  <h2>Drag & Drop Demo</h2>
-      <div id='dest'>
-        <img id='trash' src='trashlit.png'>
+      <div id='dest' ondrop='drop(event)' ondragover='allow(event)'>
+        <img id='trash' src='trashlit.png' >
       </div>
       <p>
-        <img id='source1' src='cube.png'>
-        <img id='source2' src='Dice.png'>
-        <img id='source3' src='ball.png'>
+        <img id='source1' src='cube.png' draggable='true' ondragstart='drag(event)'>
+        <img id='source2' src='Dice.png' draggable='true' ondragstart='drag(event)'>
+        <img id='source3' src='ball.png' draggable='true' ondragstart='drag(event)'>
       </p>
       <p>Dragging the image to copy it into the above div element.<br>
       To move, hold the 'Shift' key while dragging.</p>
@@ -38,8 +44,40 @@
 
     <script>
 
+      let x = document.getElementsByTagName("img");
+      let i=1, j=1, k=1;
 
+      function allow(event) {
+        event.preventDefault();
+      }
 
+      function drag(event){
+        event.dataTransfer.setData('image/png', event.target.id);
+      }
+
+      function drop(event) {
+        event.preventDefault();
+        let data=event.dataTransfer.getData('image/png')
+        console.log("drop!");
+
+        if(event.shiftKey){
+          event.target.appendChild(document.getElementById(data));
+        }
+        else {
+          if (data=='source1'){
+            event.target.innerHTML += ('<img id = "source1_'+i+' " src = cube.png draggable = true ondragstart = drag(event)>');
+            i++;
+          } 
+          else if (data=='source2'){
+            event.target.innerHTML += ('<img id = "source2_'+j+' " src = Dice.png draggable = true ondragstart = drag(event)>');
+            j++;
+          } 
+          else if (data=='source3'){
+            event.target.innerHTML += ('<img id = "source3_'+k+' " src = ball.png draggable = true ondragstart = drag(event)>');
+            k++;
+          } 
+        }
+      }
     </script>
   </body>
 </html>
