@@ -1,2 +1,3 @@
+
 # Please switch to master branch
-# git checkout master
+# command line: git checkout master
