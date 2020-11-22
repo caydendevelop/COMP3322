@@ -31,7 +31,7 @@
   	<div id='container'>
   	  <h2>Drag & Drop Demo</h2>
       <div id='dest' ondrop='drop(event)' ondragover='allow(event)'>
-        <img id='trash' src='trashlit.png' ondrop='dropTrash(event)' ondragover='allow(event)'>
+        <img id='trash' src='trashlit.png' ondrop='dropTrash(event)' ondragover='allowTrash(event)'>
       </div>
       <p>
         <img id='source1' src='cube.png' draggable='true' ondragstart='drag(event)'>
@@ -44,7 +44,6 @@
 
     <script>
 
-      
       let dropSound = new Audio();
       dropSound.src = './drop.wav';
 
@@ -56,35 +55,48 @@
 
       let i=1, j=1, k=1;
 
-      function allow(event){
+      function allow(event)
+      {
         event.preventDefault();
       }
 
-      function drag(event){
+      function allowTrash(event)
+      {
+        event.preventDefault();
+        let ID_Data=event.dataTransfer.getData('image/png')
+        event.target.src = './trash.png'
+      }
+
+      function drag(event)
+      {
         event.dataTransfer.setData('image/png', event.target.id);
       }
 
-      function drop(event){
+      function drop(event)
+      {
         // 每個element獨立有一個id 先符合HTML標準 亦係delete得順利既最主要因素
         // 唔知點解入左DestDiv既img改左id之後就會無辦法再自己Duplicate, 所以用shift移入去都要改id, 唔可以直接appendChild  
-
         event.preventDefault();
         let ID_Data=event.dataTransfer.getData('image/png')
         
-        if(event.shiftKey){
-          if (ID_Data=='source1'){
+        if(event.shiftKey)
+        {
+          if (ID_Data=='source1')
+          {
             event.stopPropagation();
             dropSound.play();
             event.target.innerHTML += ('<img id = "source1_'+i+'" src = cube.png draggable = true ondragstart = drag(event)>');
             i++;
           } 
-          else if (ID_Data=='source2'){
+          else if (ID_Data=='source2')
+          {
             event.stopPropagation();
             dropSound.play();
             event.target.innerHTML += ('<img id = "source2_'+j+'" src = Dice.png draggable = true ondragstart = drag(event)>');
             j++;
           } 
-          else if (ID_Data=='source3'){
+          else if (ID_Data=='source3')
+          {
             event.stopPropagation();
             dropSound.play();
             event.target.innerHTML += ('<img id = "source3_'+k+'" src = ball.png draggable = true ondragstart = drag(event)>');
@@ -93,30 +105,37 @@
           var fileToBeDeleted=document.getElementById(ID_Data);
           fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
         }
-        else {
-          if (ID_Data=='source1'){
+        else 
+        {
+          if (ID_Data=='source1')
+          {
             event.stopPropagation();
             dropSound.play();
             event.target.innerHTML += ('<img id = "source1_'+i+'" src = cube.png draggable = true ondragstart = drag(event)>');
             i++;
           } 
-          else if (ID_Data=='source2'){
+          else if (ID_Data=='source2')
+          {
             event.stopPropagation();
             dropSound.play();
             event.target.innerHTML += ('<img id = "source2_'+j+'" src = Dice.png draggable = true ondragstart = drag(event)>');
             j++;
           } 
-          else if (ID_Data=='source3'){
+          else if (ID_Data=='source3')
+          {
             event.stopPropagation();
             dropSound.play();
             event.target.innerHTML += ('<img id = "source3_'+k+'" src = ball.png draggable = true ondragstart = drag(event)>');
             k++;
           }
-          else {
+          else 
+          {
             event.stopPropagation();
             rejectSound.play();
           } 
+
         }
+        
       }
 
       function dropTrash(event){
@@ -125,14 +144,21 @@
         event.stopPropagation();
         let ID_Data=event.dataTransfer.getData('image/png');
 
-        if(ID_Data != 'source1' && ID_Data != 'source2' && ID_Data != 'source3'){
+        if(ID_Data != 'source1' && ID_Data != 'source2' && ID_Data != 'source3')
+        {
           var fileToBeDeleted=document.getElementById(ID_Data);
           event.stopPropagation();
           trashSound.play();
           fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
-          
-        }
-
+          event.target.src = './trashlit.png';
+        } 
+        else 
+        {
+          event.stopPropagation();
+          rejectSound.play();
+          event.target.src = './trashlit.png';
+        } 
+        
       }
     </script>
   </body>
