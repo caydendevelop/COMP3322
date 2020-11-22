@@ -1,1 +1,2 @@
-# COMP3322_Assignment2
+# Please switch to master branch
+# git checkout master
