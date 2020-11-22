@@ -51,6 +51,9 @@
       let trashSound = new Audio();
       trashSound.src = './trash.wav';
 
+      let rejectSound = new Audio();
+      rejectSound.src = './reject.wav';
+
       let i=1, j=1, k=1;
 
       function allow(event){
@@ -70,16 +73,19 @@
         
         if(event.shiftKey){
           if (ID_Data=='source1'){
+            event.stopPropagation();
             dropSound.play();
             event.target.innerHTML += ('<img id = "source1_'+i+'" src = cube.png draggable = true ondragstart = drag(event)>');
             i++;
           } 
           else if (ID_Data=='source2'){
+            event.stopPropagation();
             dropSound.play();
             event.target.innerHTML += ('<img id = "source2_'+j+'" src = Dice.png draggable = true ondragstart = drag(event)>');
             j++;
           } 
           else if (ID_Data=='source3'){
+            event.stopPropagation();
             dropSound.play();
             event.target.innerHTML += ('<img id = "source3_'+k+'" src = ball.png draggable = true ondragstart = drag(event)>');
             k++;
@@ -89,19 +95,26 @@
         }
         else {
           if (ID_Data=='source1'){
+            event.stopPropagation();
             dropSound.play();
             event.target.innerHTML += ('<img id = "source1_'+i+'" src = cube.png draggable = true ondragstart = drag(event)>');
             i++;
           } 
           else if (ID_Data=='source2'){
+            event.stopPropagation();
             dropSound.play();
             event.target.innerHTML += ('<img id = "source2_'+j+'" src = Dice.png draggable = true ondragstart = drag(event)>');
             j++;
           } 
           else if (ID_Data=='source3'){
+            event.stopPropagation();
             dropSound.play();
             event.target.innerHTML += ('<img id = "source3_'+k+'" src = ball.png draggable = true ondragstart = drag(event)>');
             k++;
+          }
+          else {
+            event.stopPropagation();
+            rejectSound.play();
           } 
         }
       }
@@ -109,12 +122,15 @@
       function dropTrash(event){
 
         event.preventDefault();
+        event.stopPropagation();
         let ID_Data=event.dataTransfer.getData('image/png');
 
         if(ID_Data != 'source1' && ID_Data != 'source2' && ID_Data != 'source3'){
           var fileToBeDeleted=document.getElementById(ID_Data);
+          event.stopPropagation();
           trashSound.play();
           fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
+          
         }
 
       }
