@@ -31,7 +31,7 @@
   	<div id='container'>
   	  <h2>Drag & Drop Demo</h2>
       <div id='dest' ondrop='drop(event)' ondragover='allow(event)'>
-        <img id='trash' src='trashlit.png' ondrop='dropTrash(event)' ondragover='allowTrash(event)'>
+        <img id='trash' src='trashlit.png' ondrop='dropTrash(event)' ondragover='allowTrash(event)' ondragleave="leave(event)">
       </div>
       <p>
         <img id='source1' src='cube.png' draggable='true' ondragstart='drag(event)'>
@@ -87,6 +87,8 @@
             dropSound.play();
             event.target.innerHTML += ('<img id = "source1_'+i+'" src = cube.png draggable = true ondragstart = drag(event)>');
             i++;
+            var fileToBeDeleted=document.getElementById(ID_Data);
+            fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
           } 
           else if (ID_Data=='source2')
           {
@@ -94,6 +96,8 @@
             dropSound.play();
             event.target.innerHTML += ('<img id = "source2_'+j+'" src = Dice.png draggable = true ondragstart = drag(event)>');
             j++;
+            var fileToBeDeleted=document.getElementById(ID_Data);
+            fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
           } 
           else if (ID_Data=='source3')
           {
@@ -101,9 +105,10 @@
             dropSound.play();
             event.target.innerHTML += ('<img id = "source3_'+k+'" src = ball.png draggable = true ondragstart = drag(event)>');
             k++;
+            var fileToBeDeleted=document.getElementById(ID_Data);
+            fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
           } 
-          var fileToBeDeleted=document.getElementById(ID_Data);
-          fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
+          rejectSound.play();
         }
         else 
         {
@@ -159,6 +164,12 @@
           event.target.src = './trashlit.png';
         } 
         
+      }
+
+      function leave(event){
+        event.preventDefault();
+        event.stopPropagation();
+        event.target.src = './trashlit.png';
       }
     </script>
   </body>
