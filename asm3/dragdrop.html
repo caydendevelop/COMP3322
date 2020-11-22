@@ -48,6 +48,9 @@
       let dropSound = new Audio();
       dropSound.src = './drop.wav';
 
+      let trashSound = new Audio();
+      trashSound.src = './trash.wav';
+
       let i=1, j=1, k=1;
 
       function allow(event){
@@ -110,6 +113,7 @@
 
         if(ID_Data != 'source1' && ID_Data != 'source2' && ID_Data != 'source3'){
           var fileToBeDeleted=document.getElementById(ID_Data);
+          trashSound.play();
           fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
         }
 
