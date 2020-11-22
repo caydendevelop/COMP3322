@@ -27,8 +27,8 @@
       }
     </style>
   </head>
-  <body>
-  	<div id='container'>
+  <body ondragover="noBack(event)">
+  	<div id='container' >
   	  <h2>Drag & Drop Demo</h2>
       <div id='dest' ondrop='drop(event)' ondragover='allow(event)'>
         <img id='trash' src='trashlit.png' ondrop='dropTrash(event)' ondragover='allowTrash(event)' ondragleave="leave(event)">
@@ -55,6 +55,11 @@
 
       let i=1, j=1, k=1;
 
+      function noBack(event){
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
       function allow(event)
       {
         event.preventDefault();
@@ -65,6 +70,10 @@
         event.preventDefault();
         let ID_Data=event.dataTransfer.getData('image/png')
         event.target.src = './trash.png'
+      }
+
+      function preventSound(event){
+        event.stopPropagation();
       }
 
       function drag(event)
@@ -83,60 +92,59 @@
         {
           if (ID_Data=='source1')
           {
-            event.stopPropagation();
-            dropSound.play();
-            event.target.innerHTML += ('<img id = "source1_'+i+'" src = cube.png draggable = true ondragstart = drag(event)>');
+            // event.preventDefault();
+            dropSound.cloneNode(true).play();
+            event.target.innerHTML += ('<img id = "source1_'+i+'" src = "cube.png" draggable = "true" ondragstart = drag(event)>');
             i++;
             var fileToBeDeleted=document.getElementById(ID_Data);
             fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
           } 
           else if (ID_Data=='source2')
           {
-            event.stopPropagation();
-            dropSound.play();
-            event.target.innerHTML += ('<img id = "source2_'+j+'" src = Dice.png draggable = true ondragstart = drag(event)>');
+            // event.preventDefault();
+            dropSound.cloneNode(true).play();
+            event.target.innerHTML += ('<img id = "source2_'+j+'" src = "Dice.png" draggable = "true" ondragstart = "drag(event)">');
             j++;
             var fileToBeDeleted=document.getElementById(ID_Data);
             fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
           } 
           else if (ID_Data=='source3')
           {
-            event.stopPropagation();
-            dropSound.play();
-            event.target.innerHTML += ('<img id = "source3_'+k+'" src = ball.png draggable = true ondragstart = drag(event)>');
+            // event.preventDefault();
+            dropSound.cloneNode(true).play();
+            event.target.innerHTML += ('<img id = "source3_'+k+'" src = "ball.png" draggable = "true" ondragstart = "drag(event)">');
             k++;
             var fileToBeDeleted=document.getElementById(ID_Data);
             fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
-          } 
-          rejectSound.play();
+          } else
+          {
+            rejectSound.play();
+          }
+          
         }
         else 
         {
           if (ID_Data=='source1')
           {
-            event.stopPropagation();
-            dropSound.play();
-            event.target.innerHTML += ('<img id = "source1_'+i+'" src = cube.png draggable = true ondragstart = drag(event)>');
+            dropSound.cloneNode(true).play();
+            event.target.innerHTML += ('<img id = "source1_'+i+'" src = "cube.png" draggable = "true" ondragstart = "drag(event)" ondrop="preventSound(event)">');
             i++;
           } 
           else if (ID_Data=='source2')
           {
-            event.stopPropagation();
-            dropSound.play();
-            event.target.innerHTML += ('<img id = "source2_'+j+'" src = Dice.png draggable = true ondragstart = drag(event)>');
+            dropSound.cloneNode(true).play();
+            event.target.innerHTML += ('<img id = "source2_'+j+'" src = "Dice.png" draggable = "true" ondragstart = "drag(event)" ondrop="preventSound(event)">');
             j++;
           } 
           else if (ID_Data=='source3')
-          {
-            event.stopPropagation();
-            dropSound.play();
-            event.target.innerHTML += ('<img id = "source3_'+k+'" src = ball.png draggable = true ondragstart = drag(event)>');
+          {            
+            dropSound.cloneNode(true).play();
+            event.target.innerHTML += ('<img id = "source3_'+k+'" src = "ball.png" draggable = "true" ondragstart = "drag(event)" ondrop="preventSound(event)">');
             k++;
           }
           else 
-          {
-            event.stopPropagation();
-            rejectSound.play();
+          {           
+            rejectSound.cloneNode(true).play();
           } 
 
         }
@@ -153,14 +161,14 @@
         {
           var fileToBeDeleted=document.getElementById(ID_Data);
           event.stopPropagation();
-          trashSound.play();
+          trashSound.cloneNode(true).play();
           fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
           event.target.src = './trashlit.png';
         } 
         else 
         {
           event.stopPropagation();
-          rejectSound.play();
+          rejectSound.cloneNode(true).play();
           event.target.src = './trashlit.png';
         } 
         

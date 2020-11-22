@@ -1,0 +1,171 @@
+<!-- Assignment3  Name: Cheung Wai Hong  UID: 3035478751-->
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Drag and Drop</title>
+    <style>
+      #container {
+      	margin-left: 100px;
+      	margin-top: 30px;
+      }
+      h2 {
+      	margin-left: 50px;
+      }
+      #dest {
+        background: lightCyan;
+        border: 1px solid #444;
+        border-radius: 50px;
+        width: 640px;
+        height: 480px;
+        padding: 1rem;
+        position: relative;
+      }
+      #trash{
+        position: absolute;
+        right: 0; 
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body ondragover='containerdragover(event)'>
+  	<div id='container'>
+  	  <h2>Drag & Drop Demo</h2>
+      <div id='dest' ondragover='destdragover(event)' ondrop='destdrop(event)'>
+        <img id='trash' draggable='false' src='trashlit.png' ondragover='trashdragover(event)' ondrop='trashdrop(event)' ondragleave='trashdragleave(event)'>
+      </div>
+      <p>
+        <img id='source1' src='cube.png' draggable='true' ondragstart='targetobj(event)'>
+        <img id='source2' src='Dice.png' draggable='true' ondragstart='targetobj(event)'>
+        <img id='source3' src='ball.png' draggable='true' ondragstart='targetobj(event)'>
+      </p>
+      <p>Dragging the image to copy it into the above div element.<br>
+      To move, hold the 'Shift' key while dragging.</p>
+    </div>
+
+    <script>
+      let copy1 = 1, copy2 = 1, copy3 = 1;
+
+      let dropsound = new Audio();
+      dropsound.src = './drop.wav';
+
+      let trashsound = new Audio();
+      trashsound.src = './trash.wav';
+
+      let rejectsound = new Audio();
+      rejectsound.src = './reject.wav';
+
+      function containerdragover(event){
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      function targetobj(event){
+        event.dataTransfer.setData('image/png', event.target.id);
+        console.log("Target Drag: " + event.dataTransfer.getData('image/png'))
+      }
+
+      function destdragover(event) {
+        event.preventDefault(); //prevent bounce back default event
+      }
+
+      function destdrop(event){
+        event.preventDefault();
+        let targetobj_id = event.dataTransfer.getData('image/png');
+
+        if(event.shiftKey)
+        {
+
+          var deleteobj = document.getElementById(targetobj_id);
+          console.log("[ShiftKey] To Move on: " + deleteobj.getAttribute('id'));
+          if (targetobj_id=='source1')
+          {
+            document.getElementById('dest').innerHTML += '<img id ="source1_' + copy1 + '" src="cube.png" draggable="true" ondragstart="targetobj(event)" ondrop="copydrop(event)">';
+            copy1++;
+            dropsound.cloneNode(true).play();
+            deleteobj.parentNode.removeChild(deleteobj);
+          } 
+          else if (targetobj_id=='source2')
+          {
+            document.getElementById('dest').innerHTML += '<img id ="source2_' + copy2 + '" src="Dice.png" draggable="true" ondragstart="targetobj(event)" ondrop="copydrop(event)">';
+            copy2++;
+            dropsound.cloneNode(true).play();
+            deleteobj.parentNode.removeChild(deleteobj);
+          } 
+          else if (targetobj_id=='source3')
+          {
+            document.getElementById('dest').innerHTML += '<img id ="source3_' + copy3 + '" src="ball.png" draggable="true" ondragstart ="targetobj(event)" ondrop="copydrop(event)">';
+            copy3++;
+            dropsound.cloneNode(true).play();
+            deleteobj.parentNode.removeChild(deleteobj);
+          }
+          else {
+            rejectsound.cloneNode(true).play();
+            console.log("[ShiftKey] " + deleteobj.getAttribute('id') + " Not Movable!")
+          }
+        }
+        else 
+        {
+          if (targetobj_id=='source1')
+          {
+            dropsound.cloneNode(true).play();
+            document.getElementById('dest').innerHTML += '<img id ="source1_' + copy1 + '" src="cube.png" draggable="true" ondragstart="targetobj(event)" ondrop="copydrop(event)">';
+            copy1++;
+          } 
+          else if (targetobj_id=='source2')
+          {
+            dropsound.cloneNode(true).play();
+            document.getElementById('dest').innerHTML += '<img id ="source2_' + copy2 + '" src="Dice.png" draggable="true" ondragstart="targetobj(event)" ondrop="copydrop(event)">';
+            copy2++;
+          } 
+          else if (targetobj_id=='source3')
+          {
+            dropsound.cloneNode(true).play();
+            document.getElementById('dest').innerHTML += '<img id ="source3_' + copy3 + '" src="ball.png" draggable="true" ondragstart="targetobj(event)" ondrop="copydrop(event)">';
+            copy3++;
+          }
+          else 
+          {
+            rejectsound.cloneNode(true).play();
+          }
+        }
+      }
+
+      function copydrop(event){
+        event.stopPropagation();
+      }
+
+      function trashdragover(event){
+        event.preventDefault();
+        event.target.src = './trash.png';
+      }
+
+      function trashdrop(event){
+        event.preventDefault();
+        event.stopPropagation(); //stop above div drop when div image objects move to trash
+        let targetobj=event.dataTransfer.getData('image/png');
+
+        if(targetobj != 'source1' && targetobj != 'source2' && targetobj != 'source3')
+        {
+          var deleteobj=document.getElementById(targetobj);
+          event.stopPropagation();
+          deleteobj.parentNode.removeChild(deleteobj);
+          trashsound.cloneNode(true).play();
+          event.target.src = './trashlit.png';
+        } 
+        else 
+        {
+          event.stopPropagation();
+          rejectsound.cloneNode(true).play();
+          event.target.src = './trashlit.png';
+        } 
+      }
+
+      function trashdragleave(event){
+        event.preventDefault();
+        event.target.src = './trashlit.png';
+      }
+
+    </script>
+  </body>
+</html>
