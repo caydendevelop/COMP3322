@@ -99,8 +99,11 @@
 
         event.preventDefault();
         let ID_Data=event.dataTransfer.getData('image/png');
-        var fileToBeDeleted=document.getElementById(ID_Data);
-        fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
+
+        if(ID_Data != 'source1' && ID_Data != 'source2' && ID_Data != 'source3'){
+          var fileToBeDeleted=document.getElementById(ID_Data);
+          fileToBeDeleted.parentNode.removeChild(fileToBeDeleted);
+        }
 
       }
     </script>
