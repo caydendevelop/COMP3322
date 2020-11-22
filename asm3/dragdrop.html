@@ -44,7 +44,10 @@
 
     <script>
 
-      // let x = document.getElementsByTagName("img");
+      
+      let dropSound = new Audio();
+      dropSound.src = './drop.wav';
+
       let i=1, j=1, k=1;
 
       function allow(event){
@@ -64,14 +67,17 @@
         
         if(event.shiftKey){
           if (ID_Data=='source1'){
+            dropSound.play();
             event.target.innerHTML += ('<img id = "source1_'+i+'" src = cube.png draggable = true ondragstart = drag(event)>');
             i++;
           } 
           else if (ID_Data=='source2'){
+            dropSound.play();
             event.target.innerHTML += ('<img id = "source2_'+j+'" src = Dice.png draggable = true ondragstart = drag(event)>');
             j++;
           } 
           else if (ID_Data=='source3'){
+            dropSound.play();
             event.target.innerHTML += ('<img id = "source3_'+k+'" src = ball.png draggable = true ondragstart = drag(event)>');
             k++;
           } 
@@ -80,20 +86,22 @@
         }
         else {
           if (ID_Data=='source1'){
+            dropSound.play();
             event.target.innerHTML += ('<img id = "source1_'+i+'" src = cube.png draggable = true ondragstart = drag(event)>');
             i++;
           } 
           else if (ID_Data=='source2'){
+            dropSound.play();
             event.target.innerHTML += ('<img id = "source2_'+j+'" src = Dice.png draggable = true ondragstart = drag(event)>');
             j++;
           } 
           else if (ID_Data=='source3'){
+            dropSound.play();
             event.target.innerHTML += ('<img id = "source3_'+k+'" src = ball.png draggable = true ondragstart = drag(event)>');
             k++;
           } 
         }
       }
-
 
       function dropTrash(event){
 
