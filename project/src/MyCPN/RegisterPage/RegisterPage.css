@@ -2,15 +2,34 @@ body{
   background-color: #efefef;
 }
 
-.LoginPageContainer_1{
+.RegisterPageContainer_1 h2{
   text-align: center;
+  
 }
 
-.LoginPageContainer_2{
+.RegisterPageContainer_1{
   margin: 5em auto auto auto;
   width: 70%;
   border: 1px solid;
   text-align: center;
   background-color: aliceblue;
   padding-bottom: 2em;
+}
+
+
+
+.left{
+  display: inline-block;
+  
+  text-align: end;
+}
+
+.right{
+  display: inline-block;
+  
+}
+
+div input{
+  display: block;
+  margin: 1.7em;
 }
