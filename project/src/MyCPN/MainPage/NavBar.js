@@ -1,6 +1,6 @@
 import React from 'react';
 import './NavBar.css';
-// import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class NavBar extends React.Component {
   render() {
@@ -26,18 +26,23 @@ class NavBar extends React.Component {
           </li>
 
           <li>
-            <input type="text" />
+            <input type="text" size='50' />
           </li>
 
+          {/*  */}
           <li style={{float:"right"}}> 
-            <button >
+            <button>
+              <Link to="/RegisterPage">
               Register
+              </Link>
             </button>
           </li>
 
           <li style={{float:"right"}}>
-            <button >
-              Login
+            <button>
+              <Link to="/LoginPage">
+                Login
+              </Link>
             </button>
           </li>
 

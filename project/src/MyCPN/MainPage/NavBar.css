@@ -23,8 +23,7 @@ li button {
 
 li input {
   display: inline;
-  padding-left: 8em;
-  padding-right: 8em;
+  size:500;
   margin: 1.6em 1em 1em 4em; 
 }
 
