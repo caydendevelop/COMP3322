@@ -19,10 +19,7 @@ class App extends Component {
         <Route path="/QuestionDetailPage" exact component={QuestionDetailPage} />
         <Route path="/RegisterPage" exact component={RegisterPage} />
         
-        
 
-        
-        
       </BrowserRouter>
     );
   }
