@@ -7,24 +7,27 @@
 <body>
   <div class="RegisterPageContainer_1">
     <h2>Create an account</h2>
+    <form action="Register.php" method="post">
+      <div class="left">
+        <h4>UID</h4>
+        <h4>Name</h4>
+        <h4>Email</h4>
+        <h4>Password</h4>
+        <h4>Confirmation</h4>
+      </div>
 
-    <div class="left">
-      <h4>Name</h4>
-      <h4>Email</h4>
-      <h4>Password</h4>
-      <h4>Confirmation</h4>
-    </div>
+      <div class="right">
+        <input type="number" size="35" name="userUID"/>
+        <input type="text" size="35" name="userName"/>
+        <input type="email" size="35" name="userUID"/>
+        <input type="password" size="35" name="userPassword"/>
+        <input type="password" size="35" />
+      </div>
 
-    <div class="right">
-      <input type="text" size="35" />
-      <input type="email" size="35" />
-      <input type="password" size="35" />
-      <input type="password" size="35" />
-    </div>
+      <br/>
 
-    <br/>
-
-    <button>Register</button>
+      <input type="submit" name="button" id="button" value="送出" />
+    </form>
 
   </div>
 </body>
