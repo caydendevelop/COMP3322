@@ -5,17 +5,53 @@
   <link rel="stylesheet" href="../css/MainPage.css">
 </head>
 <body>
-  <nav>
-    <ul>
-      <li ><button>Forum Logo</button></li>
-      <li ><button>Home</button></li>
-      <li ><button>Hot</button></li>
-      <li><input type="text" size='50' /></li>
-      <li style="float:right"><a href='./RegisterPage.html'><button>Register</button></a></li>
-      <li style="float:right"><a href='./LoginPage.html'><button>Login</button></a></li>
-
-    </ul>
+  <nav class="navBar">
+    <button class="topNavButton">Forum</button>
+    <button class="topNavButton">Home</button>
+    <button class="topNavButton">Hot</button>
+    <input type="text" class="navSearch"/>
+    <button class="topNavButton navAlignRight">Register</button>
+    <button class="topNavButton navAlignRight">Log in</button>
   </nav>
+
+  <div class="leftNav">
+    <button class="leftNavButton ">Algorithm</button>
+    <button class="leftNavButton ">Machine Learning</button>
+    <button class="leftNavButton">System</button>
+    <button class="leftNavButton">Javascript</button>
+  </div>
+
+  <main class="mainContainer">
+    <div class="askButtonContainer">
+      <button class="askButton">Ask Question</button>
+    </div>
+
+    <div class="card">
+      <h3>userName</h3>
+      <h2>What is your Question?</h2>
+    </div>
+
+    <div class="card">
+      <h4>Javascript</h4>
+      <div class="leftSpan">
+        <h3>userName</h3>
+        <h5>time</h5>
+      </div>
+      <div class="rightSpan">
+        <h3>questionTitle</h3>
+        <p>sahfjasdhfjdlkafhdlkajfhdljkahfdlka;f kjsdhfjk dskljkljfdskf dksf ds dk dshkjf hsdaklf</p>
+          
+          
+      </div>
+      <div>
+        <button>Upvote</button>
+        <button>Answer</button>
+        </div>
+      </div>
+
+
+  </main>
+    
 
 </body>
 </html>
