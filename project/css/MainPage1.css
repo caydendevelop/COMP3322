@@ -1,0 +1,273 @@
+body {margin:0;}
+a {text-decoration: none;}
+
+p{
+  font-size:12px;
+}
+
+.leftColumn{
+  display:inline-block;
+}
+.leftSpan h5{
+  color:#9f9f9f;
+  font-size:12px;
+}
+.cardTime{
+  color:#9f9f9f;
+  font-size:12px;
+}
+
+.cardTitle{
+  background-color: #ffffff;
+  border: none;
+  color: #ff9800;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.navBar{
+  background-color: #ff9800;
+  padding-left:2em;
+  padding-right:1em;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 98%;
+}
+
+.topNavButton{
+  margin:5px;
+  padding:1em;
+  color:white;
+  border: none;
+  background-color:#ff9800;
+  font-size: 16px;
+}
+
+.navSearch{
+  width:25em;
+  margin-left:2em;
+}
+
+.leftNav{
+  
+  height:100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 50px;
+  left: 0;
+  background-color: #ff9800;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.leftNavButton{
+  display: block;
+  margin:5px;
+  padding:1em;
+  color:white;
+  border: none;
+  background-color:#ff9800;
+  font-size: 16px;
+}
+
+.navAlignRight{
+  float:right;
+}
+
+.askButtonContainer{
+  text-align: end;
+  padding-bottom:1em;
+}
+
+.askButton{
+  
+  padding:1em;
+  border: none;
+  font-size: 16px;
+}
+
+.mainContainer{
+  margin-top:3em;
+  margin-bottom:1em;
+  margin-left: 250px;
+  padding-top:2em;
+  padding-left:1em;
+  padding-bottom: 3em;
+  background-color:#efefef;
+}
+
+.card{
+  background-color: white;
+  margin:1em;
+  padding:1em;
+  
+}
+
+.leftSpan{
+  width: 180px;
+  display: inline-block;
+  margin-right: 100px;
+}
+
+.rightSpan{
+  width: 720px;
+  
+  display: inline-block;
+}
+
+.answerCard{
+  background-color: #f2f2f2;
+  margin:1em 1em 1em 2em;
+  padding:1em;
+}
+
+.noShow{
+  display: none;
+}
+
+
+ /* smaller than 1030px e.g. Tablet */
+ @media only screen and (max-width: 1030px) {
+  .leftColumn{
+    display:inline-block;
+  }
+  
+  .navBar{
+    width:100%;
+    font-size:12px;
+    padding: 5px;
+  }
+  .topNavButton{
+
+    padding:7px;
+    color:white;
+    border: none;
+    background-color:#ff9800;
+    font-size: 14px;
+    text-align: center;
+  }
+  .navSearch{
+    width:150px;
+    padding:5px;
+    text-align: center;
+  }
+  .navAlignRight{
+    width:250px;
+    text-align: center;
+    margin:0;
+
+  }
+
+  .leftNav{
+    height:auto;
+    background-color: #ff9800;
+    padding-left:2em;
+    padding-right:1em;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: 0;
+  }
+  
+  .leftNavButton{
+    display: inline-block;
+    margin:5px;
+    padding:1em;
+    color:white;
+    border: none;
+    background-color:#ff9800;
+    font-size: 12px;
+  }
+
+  .mainContainer{
+    margin-top:3em;
+    margin-bottom:1em;
+    margin-left: 0px;
+    padding-top:2em;
+    padding-left:1em;
+    padding-bottom: 3em;
+    background-color:#efefef;
+  }
+}
+
+/* smaller than 500px e.g. phone */
+@media only screen and (max-width: 500px) {
+  .leftColumn{
+    width:100%;
+  }
+  
+  .navBar{
+    width:100%;
+    font-size:12px;
+    padding: 5px;
+  }
+  .topNavButton{
+
+    padding:7px;
+    color:white;
+    border: none;
+    background-color:#ff9800;
+    font-size: 14px;
+    text-align: center;
+  }
+  .navSearch{
+    width:100%;
+    padding:5px;
+    text-align: center;
+  }
+  .navAlignRight{
+    width:100%;
+    text-align: center;
+    margin:0;
+    
+  }
+
+  .leftNav{
+    height:auto;
+    background-color: #ff9800;
+    margin-top: 60px;
+    padding-left:2em;
+    padding-right:1em;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 0;
+  }
+  
+  .leftNavButton{
+    display: inline-block;
+    margin:5px;
+    padding:1em;
+    color:white;
+    border: none;
+    background-color:#ff9800;
+    font-size: 12px;
+  }
+
+  .mainContainer{
+    margin-top:6em;
+    margin-bottom:1em;
+    margin-left: 0px;
+    padding-top:2em;
+    padding-left:1em;
+    padding-bottom: 3em;
+    background-color:#efefef;
+  }
+}
+
+/* smaller than 500px e.g. phone */
+@media only screen and (max-width: 480px) {
+  .mainContainer{
+    margin-top:10em;
+    margin-bottom:1em;
+    margin-left: 0px;
+    padding-top:2em;
+    padding-left:1em;
+    padding-bottom: 3em;
+    background-color:#efefef;
+  }
+
+}
