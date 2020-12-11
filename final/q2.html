@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Q2 Final</title>
+</head>
+<body>
+  <div>
+    <button id="toshow">People</button><br> 
+    Click the button to show the list of staff 
+    <div id="show"></div>
+  </div>
+
+  <script>
+    /* The variable people stores the information of the staff */
+    const people = [
+    {"fname": "Mary", "lname": "Law", "title": "Dr.", "image": "law.png"}, {"fname": "John", "lname": "Mark", "title": "Prof.", "image": "mark.png"}, {"fname": "Helen", "lname": "Ng", "title": "Ms.", "image": "ng.png"}, {"fname": "Jim", "lname": "Ray", "title": "Dr.", "image": "ray.png"}
+    ];
+
+    // jQuery code below
+
+    $("#toshow").on(
+      {'click' : function() {
+        $("div").first().html("<button id='toshow'>People</button><br>  <div id='show'></div>");
+        $.each(people, function(i,value){
+          $("#show").append("<div>"+"<img src="+value.image+" width='200px'><br/><p>"+value.title+value.fname+" "+value.lname+"</p></div>");
+        })
+        $("#show").css({"width":"400px", "text-align":"center", "display":"flex","flex-rwap":"wrap", "position":"relative"});
+        $("#show").animate({ left:'100px'}, 2000, "linear" );
+        $("#show").animate({ top :'100px' }, 2000, "linear" );
+        $("#toshow").off();
+      }
+
+    })
+
+    
+
+  </script>
+
+</body>
